@@ -1,7 +1,7 @@
 # Live Project 1
 <ul>
     <li><a href="#Introduction">Introduction</a></li>
-    <li><a href="#CRUD%20Operations">CRUD Operations</a></li>
+    <li><a href="#CRUD Operations">CRUD Operations</a></li>
     <li><a href="#Beautiful Soup">Beautiful Soup</a></li>
     <li><a href="#API">API</a></li>
     <li><a href="#Key Takeaways">Key Takeaways</a></li>
@@ -11,7 +11,7 @@
 <h1>Introduction</h1>
 <p>This page functions as a summary of the first live project I completed through The Tech Academy. The goal of this project was to provide me with real-world technical experience, and for me to show off some of the skills I've learned so far. During this project, I worked with a team to create apps using the Django framework (version 2.2) that will help users keep track of various collectible items. We worked together using Azure DevOps. For my app, I chose to develop a program capable of keeping track of a collection of cards for a popular trading card game, Hearthstone. This project included three main parts, which I will provide details on below.</p>
 
-<h1>CRUD Operations</h1>
+<h1 id="CRUD Operations">CRUD Operations</h1>
 <p>To start the project, I needed to set up CRUD operations to have a basic working product. The CRUD Operations were pretty straightforward, but I ran into two challenges when trying to add aditional features. First, I wanted to Paginate the queried results so that the user could look through multiple pages of cards, rather than one long list. Being new to Pagination and the Django framework in general, it took some practice to understand the idea of passing content from the Views to my templates. I was able to overcome this by referring to the documentation and furthering my comprehension, which brings me to my second challenge. Instead of bringing users to a separate page to confirm deletion of a card in the database, I felt a pop-up modal would be better for the user experience. Using a modal required me to figure out a way to differentiate between either form ("edit_form" or "delete_form"), and act accordingly. I was able to accomplish this simply by adding two "if" statements which check to see which form is sent.</p>
 
 <h4>CRUD Views:</h4>
