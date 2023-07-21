@@ -1,9 +1,9 @@
 # Live Project 1
 
-<h1>Introduction:</h1>
+<h1>Introduction</h1>
 <p>This page functions as a summary of the first live project I completed through The Tech Academy. The goal of this project was to provide me with real-world technical experience, and for me to show off some of the skills I've learned so far. During this project, I worked with a team to create apps using the Django framework (version 2.2) that will help users keep track of various collectible items. For my app, I chose to develop a program capable of keeping track of a collection of cards for a popular trading card game, Hearthstone. This project included three main parts, which I will provide details on below.</p>
 
-<h1>CRUD Operations:</h1>
+<h1>CRUD Operations</h1>
 <p>To start the project, I needed to set up CRUD operations to have a basic working product. The CRUD Operations were pretty straightforward, but I ran into two challenges when trying to add aditional features. First, I wanted to Paginate the queried results so that the user could look through multiple pages of cards, rather than one long list. Being new to Pagination and the Django framework in general, it took some practice to understand the idea of passing content from the Views to my templates. I was able to overcome this by referring to the documentation and furthering my comprehension, which brings me to my second challenge. Instead of bringing users to a separate page to confirm deletion of a card in the database, I felt a pop-up modal would be better for the user experience. Using a modal required me to figure out a way to differentiate between either form ("edit_form" or "delete_form"), and act accordingly. I was able to accomplish this simply by adding two "if" statements which check to see which form is sent.</p>
 
 <h4>Views:</h4>
@@ -96,13 +96,58 @@
     
     {% endblock %}
 
-<h1>Beautiful Soup:</h1>
-<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data </p>
+<h1>Beautiful Soup</h1>
+<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. </p>
 
+    # Function for Beautiful Soup. This extracts data from hearthpwn.com,
+    # and then displays that data in a cleaned up format.
+    def HSDT_bs(request):
+        URLS = [
+            "https://www.hearthpwn.com/cards?filter-set=1800",
+            "https://www.hearthpwn.com/cards?filter-set=1800&page=2",
+            "https://www.hearthpwn.com/cards?filter-set=1800&page=3",
+            "https://www.hearthpwn.com/cards?filter-set=1800&page=4"
+        ]
+        cards = []
+        card_name_set = set() # Using the set method to remove duplicate names later on
+        for URL in URLS: # Goes through all paginated pages on hearthpwn.com/cards?filter-set=1800
+            r = requests.get(URL)
+            soup = BeautifulSoup(r.content, 'html.parser')
+            table = soup.find('div', attrs={'class': 'listing-body'}) # Finds specific data we are looking for
+            for row in table.findAll('td', attrs={'class': 'visual-details-cell'}): # Runs through this loop for each card
+                card_name = row.a.string # Gets the string value of the first "a" tag (which happens to be the card name)
+                if card_name in card_name_set: # The website pulled several duplicate names
+                    continue # I've added this loop to make sure only one of each card is shown.
+                else:
+                    card_name_set.add(card_name)
+                    card_url = row.a['href']  # Gets the url for each card
+                    card_type = row.ul.li.a.string # Gets the string value for "type"
+                    card_rarity_tag = row.find(href=re.compile("filter-rarity")) # Gets the card's rarity tag
+                    if card_rarity_tag is not None:
+                        card_rarity = card_rarity_tag.string
+                    else:
+                        card_rarity = "No Rarity"
+                    card_class_tag = row.find(href=re.compile("filter-class")) # Gets card class tag
+                    if card_class_tag is not None:
+                        card_class = card_class_tag.get_text()
+                    else:
+                        card_class = "Neutral"
+                    cards.append({
+                        'card_url': card_url,
+                        'card_name': card_name,
+                        'card_type': card_type,
+                        'card_rarity': card_rarity,
+                        'card_class': card_class
+                    }) # Adds card data to the list
+        paginator = Paginator(cards, 40) # Paginates the list we get back by 40
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        content = {'page_obj': page_obj}
+        return render(request, 'HSDeckTracker/HSDT_bs.html', content)
 <h1>API:</h1>
 <p></p>
 
-<h1>Key Takeaways:</h1>
+<h1>Key Takeaways</h1>
 <ul>
     <li>
         <b>Planning ahead is an essential part of time management.</b> Taking the time to create a basic outline of what I'm trying to accomplish <i>before</i> starting any coding helps save time in the long run. A few times throughout this project, a idea would pop into my head and I would start coding away, feuled by the excitement of my new goal. I'd spend an hour or two researching, only to realize that implementing my idea would require me to re-write large portions of code. Had I planned ahead more, I would have been able to write my original code more effectively, and saved some time.
