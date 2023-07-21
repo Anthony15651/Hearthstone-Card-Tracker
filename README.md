@@ -8,7 +8,7 @@
     <li><a href="#Full Code Links">Full Code Links</a></li>
 </ul>
 
-<h1>Introduction</h1>
+<h1 id="Introduction">Introduction</h1>
 <p>This page functions as a summary of the first live project I completed through The Tech Academy. The goal of this project was to provide me with real-world technical experience, and for me to show off some of the skills I've learned so far. During this project, I worked with a team to create apps using the Django framework (version 2.2) that will help users keep track of various collectible items. We worked together using Azure DevOps. For my app, I chose to develop a program capable of keeping track of a collection of cards for a popular trading card game, Hearthstone. This project included three main parts, which I will provide details on below.</p>
 
 <h1 id="CRUD Operations">CRUD Operations</h1>
@@ -104,7 +104,7 @@
     
     {% endblock %}
 
-<h1>Beautiful Soup</h1>
+<h1 id="Beautiful Soup">Beautiful Soup</h1>
 <p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. Overall, I feel that the code I've written can be definitely be improved upon, but I'm happy with the results considering this is my first experience with BS. I had my fair share of challenges learning this, but for the sake of keeping this short, I will only include my top two. My first challenge was learning how to scrape the data I need, and then regulating that data so that it all works together. Not every card had all fields entered on the website I was scraping, meaning some returning a value of "None", which would lead to errors when trying to render the page. I was able to figure out the problem by printing the results into my console, and adding an "if" statement to check for such issues. The second challenge was making sure I scraped all the data, and did not include duplicate cards. Because the website I used has multiple pages of cards to go through, I decided to create a list of the URLs, and run BS on each page. To get over the duplicate cards, I added them to a set() and then would check to see if a card is already in the set before adding it. I also Paginated the results so that the user isn't just given one long list, and added dynamic URLs so that clicking on a card name will bring you to that specific card's page.</p>
 
 <h4>Beautiful Soup Views:</h4>
@@ -206,7 +206,7 @@
     
     {% endblock %}
 
-<h1>API</h1>
+<h1 id="API">API</h1>
 <p>As a bit of a challenge, I wanted to incorporate an API into my project since I had not used one before. Being new to APIs, I decided to use one from RapidAPI as I've heard they are beginner friendly. The API itself offered many different functions, but I was most interested in the search function specifically, which pulls up all cards containing a string searched by the user. I set this up by providing the user with a search box, appending the user's search to my original URL (which is how the search takes place), and then displaying all results. After completing the basic search functionality, I added some code to let users know if their search yeilded no results (the table displays "No Results For [User Search]).</p>
 
 <h4>API Views:</h4>
@@ -279,7 +279,7 @@
     </table>
     {% endblock %}
         
-<h1>Key Takeaways</h1>
+<h1 id="Key Takeaways">Key Takeaways</h1>
 <ul>
     <li>
         <b>Planning ahead is an essential part of time management.</b> Taking the time to create a basic outline of what I'm trying to accomplish <i>before</i> starting any coding helps save time in the long run. A few times throughout this project, a idea would pop into my head and I would start coding away, feuled by the excitement of my new goal. I'd spend an hour or two researching, only to realize that implementing my idea would require me to re-write large portions of code. Had I planned ahead more, I would have been able to write my original code more effectively, and saved some time.
@@ -292,4 +292,4 @@
     </li>
 </ul>
 
-<h4>Full Code Links</h4>
+<h4 id="Full Code Links">Full Code Links</h4>
