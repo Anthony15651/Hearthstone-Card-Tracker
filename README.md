@@ -97,7 +97,7 @@
     {% endblock %}
 
 <h1>Beautiful Soup</h1>
-<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. </p>
+<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. Overall, I feel that the code I've written can be definitely be improved upon, but I'm happy with the results considering this is my first experience with BS. I had my fair share of challenges learning this, but for the sake of keeping this short, I will only include my top two. My first challenge was learning how to scrape the data I need, and then regulating that data so that it all works together. Not every card had all fields entered on the website I was scraping, meaning some returning a value of "None", which would lead to errors when trying to render the page. I was able to figure out the problem by printing the results into my console, and adding an "if" statement to check for such issues. The second challenge was making sure I scraped all the data, and did not include duplicate cards. Because the website I used has multiple pages of cards to go through, I decided to create a list of the URLs, and run BS on each page. To get over the duplicate cards, I added them to a set() and then would check to see if a card is already in the set before adding it.  </p>
 
     # Function for Beautiful Soup. This extracts data from hearthpwn.com,
     # and then displays that data in a cleaned up format.
