@@ -6,7 +6,7 @@
 <h1>CRUD Operations</h1>
 <p>To start the project, I needed to set up CRUD operations to have a basic working product. The CRUD Operations were pretty straightforward, but I ran into two challenges when trying to add aditional features. First, I wanted to Paginate the queried results so that the user could look through multiple pages of cards, rather than one long list. Being new to Pagination and the Django framework in general, it took some practice to understand the idea of passing content from the Views to my templates. I was able to overcome this by referring to the documentation and furthering my comprehension, which brings me to my second challenge. Instead of bringing users to a separate page to confirm deletion of a card in the database, I felt a pop-up modal would be better for the user experience. Using a modal required me to figure out a way to differentiate between either form ("edit_form" or "delete_form"), and act accordingly. I was able to accomplish this simply by adding two "if" statements which check to see which form is sent.</p>
 
-<h4>Views:</h4>
+<h4>CRUD Views:</h4>
 
     # Function to view "home" page
     def HSDT_home(request):
@@ -99,7 +99,7 @@
 <h1>Beautiful Soup</h1>
 <p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. Overall, I feel that the code I've written can be definitely be improved upon, but I'm happy with the results considering this is my first experience with BS. I had my fair share of challenges learning this, but for the sake of keeping this short, I will only include my top two. My first challenge was learning how to scrape the data I need, and then regulating that data so that it all works together. Not every card had all fields entered on the website I was scraping, meaning some returning a value of "None", which would lead to errors when trying to render the page. I was able to figure out the problem by printing the results into my console, and adding an "if" statement to check for such issues. The second challenge was making sure I scraped all the data, and did not include duplicate cards. Because the website I used has multiple pages of cards to go through, I decided to create a list of the URLs, and run BS on each page. To get over the duplicate cards, I added them to a set() and then would check to see if a card is already in the set before adding it. I also Paginated the results so that the user isn't just given one long list, and added dynamic URLs so that clicking on a card name will bring you to that specific card's page.</p>
 
-<h4>Views:</h4>
+<h4>Beautiful Soup Views:</h4>
 
     # Function for Beautiful Soup. This extracts data from hearthpwn.com,
     # and then displays that data in a cleaned up format.
@@ -201,6 +201,8 @@
 <h1>API</h1>
 <p>As a bit of a challenge, I wanted to incorporate an API into my project since I had not used one before. Being new to APIs, I decided to use one from RapidAPI as I've heard they are beginner friendly. </p>
 
+<h4>API Views:</h4>
+
     # Function for my API. This uses the API to search any string, and return all cards that contain
     # the string searched by the user.
     def HSDT_api(request):
@@ -231,6 +233,8 @@
             'search_form': search_form,
         }
         return render(request, 'HSDeckTracker/HSDT_api.html', content)
+
+<h4>API Template:</h4>
         
 <h1>Key Takeaways</h1>
 <ul>
