@@ -9,7 +9,8 @@
     # Function to view "home" page
     def HSDT_home(request):
         return render(request, 'HSDeckTracker/HSDT_home.html')
-    
+        
+    # Function to view "add card" page
     def HSDT_create(request):
         form = CardForm(data=request.POST or None)
         if request.method == 'POST':
