@@ -1,7 +1,7 @@
 # Live Project 1
 <ul>
     <li><a href="#Introduction">Introduction</a></li>
-    <li><a href="#CRUD Operations">CRUD Operations</a></li>
+    <li><a href="#CRUD%20Operations">CRUD Operations</a></li>
     <li><a href="#Beautiful Soup">Beautiful Soup</a></li>
     <li><a href="#API">API</a></li>
     <li><a href="#Key Takeaways">Key Takeaways</a></li>
