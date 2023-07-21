@@ -5,5 +5,6 @@
 
 <h1>CRUD Operations:</h1>
 <p>To start the project, I needed to set up CRUD operations to have a basic working product. </p>
-
+~~~
 https://github.com/Anthony15651/Live-Project-1/blob/main/CRUD%20Operations.py
+~~~
