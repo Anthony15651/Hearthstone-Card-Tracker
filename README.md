@@ -6,6 +6,7 @@
 <h1>CRUD Operations:</h1>
 <p>To start the project, I needed to set up CRUD operations to have a basic working product. The CRUD Operations were pretty straightforward, but I ran into two challenges when trying to add aditional features. First, I wanted to Paginate the queried results so that the user could look through multiple pages of cards, rather than one long list. Being new to Pagination and the Django framework in general, it took some practice to understand the idea of passing content from the Views to my templates. I was able to overcome this by referring to the documentation and furthering my comprehension, which brings me to my second challenge. Instead of bringing users to a separate page to confirm deletion of a card in the database, I felt a pop-up modal would be better for the user experience. Using a modal required me to figure out a way to differentiate between either form ("edit_form" or "delete_form"), and act accordingly. I was able to accomplish this simply by adding two "if" statements which check to see which form is sent.</p>
 
+<h4>Views:</h4>
     # Function to view "home" page
     def HSDT_home(request):
         return render(request, 'HSDeckTracker/HSDT_home.html')
@@ -57,8 +58,8 @@
             'delete_form': delete_form,
         }
         return render(request, 'HSDeckTracker/HSDT_edit.html', context=context)
-
-        {% extends "HSDT_base.html" %}
+<h4>Edit / Delete Template:</h4>
+    {% extends "HSDT_base.html" %}
 
     {% block title %}Edit Collection{% endblock %}
     
