@@ -58,3 +58,40 @@
         }
         return render(request, 'HSDeckTracker/HSDT_edit.html', context=context)
 
+        {% extends "HSDT_base.html" %}
+
+    {% block title %}Edit Collection{% endblock %}
+    
+    {% block content %}
+    <h1>Edit Card Info</h1>
+    <form method="POST">
+        {{ edit_form.as_p }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-small">Save</button>
+    </form>
+    <a href="{% url 'HSDT_details' card.id %}"><button class="btn btn-small">Back</button></a>
+    <button class="btn-small btn-delete" id="deleteBtn">Delete</button>
+    
+    {# This is the modal that pops up to confirm deletion #}
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Confirm Delete</h3>
+            <p>
+                Are you sure you would like to delete <span class="bold">{{card.card_name}}</span> ?
+                This action cannot be undone.
+            </p>
+            <form method="POST">
+                {{ delete_form }}
+                {% csrf_token %}
+                <button type="submit" class="btn-delete">Yes, Delete</button>
+            </form>
+            <p></p>
+        </div>
+    </div>
+    
+    {% endblock %}
+
+<h1>Beautiful Soup:</h1>
+<p></p>
+
