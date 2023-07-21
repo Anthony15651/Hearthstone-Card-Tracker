@@ -6,5 +6,7 @@
 <h1>CRUD Operations:</h1>
 <p>To start the project, I needed to set up CRUD operations to have a basic working product. </p>
 ```
-Here is some code
+# Function to view "home" page
+def HSDT_home(request):
+    return render(request, 'HSDeckTracker/HSDT_home.html')
 ```
