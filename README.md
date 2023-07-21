@@ -199,7 +199,7 @@
     {% endblock %}
 
 <h1>API</h1>
-<p>As a bit of a challenge, I wanted to incorporate an API into my project since I had not used one before. Being new to APIs, I decided to use one from RapidAPI as I've heard they are beginner friendly. </p>
+<p>As a bit of a challenge, I wanted to incorporate an API into my project since I had not used one before. Being new to APIs, I decided to use one from RapidAPI as I've heard they are beginner friendly. The API itself offered many different functions, but I was most interested in the search function specifically, which pulls up all cards containing a string searched by the user. I set this up by providing the user with a search box, appending the user's search to my original URL (which is how the search takes place), and then displaying all results. After completing the basic search functionality, I added some code to let users know if their search yeilded no results (the table displays "No Results For [User Search]).</p>
 
 <h4>API Views:</h4>
 
@@ -235,6 +235,41 @@
         return render(request, 'HSDeckTracker/HSDT_api.html', content)
 
 <h4>API Template:</h4>
+
+    {% extends "HSDT_base.html" %}
+
+    {% block title %}Search Cards{% endblock %}
+    
+    {# The goal here is to allow users to search for a string, and then the API will pull
+    up all cards which contain the string that the user searched. #}
+    
+    {% block content %}
+    <h1>Card Library Search</h1>
+    <h3>Search any string below to see relevant cards:</h3>
+    <form method="POST" class="form-text">
+        {% csrf_token %}
+        {{ search_form.as_p }}
+        <button type="submit" class="btn">Search</button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>Card Name</th>
+            <th>Card Type</th>
+            <th>Card Class</th>
+            <th>Card Rarity</th>
+        </tr>
+    
+    {% for card in card_search %}
+        <tr>
+            <td>{{ card.name }}</td>
+            <td>{{ card.type }}</td>
+            <td>{{ card.playerClass }}</td>
+            <td>{{ card.rarity }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endblock %}
         
 <h1>Key Takeaways</h1>
 <ul>
