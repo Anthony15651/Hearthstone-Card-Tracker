@@ -97,5 +97,13 @@
     {% endblock %}
 
 <h1>Beautiful Soup:</h1>
+<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data </p>
+
+<h1>API:</h1>
 <p></p>
+
+<h1>Key Takeaways:</h1>
+<ul>
+    <li>Planning ahead is an essential part of time management. Taking the time to create a basic outline of what I'm trying to accomplish <i>before<i> starting any coding helps save time in the long run. A few times throughout this project, a idea would pop into my head and I would start coding away, feuled by the excitement of my new goal. I'd spend an hour or two researching, only to realize that implementing my idea would require me to re-write large portions of code. Had I planned ahead more, I would have been able to write my original code in a way that I could add onto it more easily in the future. </li>
+</ul>
 
