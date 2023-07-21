@@ -97,7 +97,9 @@
     {% endblock %}
 
 <h1>Beautiful Soup</h1>
-<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. Overall, I feel that the code I've written can be definitely be improved upon, but I'm happy with the results considering this is my first experience with BS. I had my fair share of challenges learning this, but for the sake of keeping this short, I will only include my top two. My first challenge was learning how to scrape the data I need, and then regulating that data so that it all works together. Not every card had all fields entered on the website I was scraping, meaning some returning a value of "None", which would lead to errors when trying to render the page. I was able to figure out the problem by printing the results into my console, and adding an "if" statement to check for such issues. The second challenge was making sure I scraped all the data, and did not include duplicate cards. Because the website I used has multiple pages of cards to go through, I decided to create a list of the URLs, and run BS on each page. To get over the duplicate cards, I added them to a set() and then would check to see if a card is already in the set before adding it.  </p>
+<p>After setting up the CRUD Operations, I wanted to use Beautiful Soup to scrape relevant data from the web and display that data to the user. Overall, I feel that the code I've written can be definitely be improved upon, but I'm happy with the results considering this is my first experience with BS. I had my fair share of challenges learning this, but for the sake of keeping this short, I will only include my top two. My first challenge was learning how to scrape the data I need, and then regulating that data so that it all works together. Not every card had all fields entered on the website I was scraping, meaning some returning a value of "None", which would lead to errors when trying to render the page. I was able to figure out the problem by printing the results into my console, and adding an "if" statement to check for such issues. The second challenge was making sure I scraped all the data, and did not include duplicate cards. Because the website I used has multiple pages of cards to go through, I decided to create a list of the URLs, and run BS on each page. To get over the duplicate cards, I added them to a set() and then would check to see if a card is already in the set before adding it. I also Paginated the results so that the user isn't just given one long list, and added dynamic URLs so that clicking on a card name will bring you to that specific card's page.</p>
+
+<h4>Views:</h4>
 
     # Function for Beautiful Soup. This extracts data from hearthpwn.com,
     # and then displays that data in a cleaned up format.
@@ -144,9 +146,92 @@
         page_obj = paginator.get_page(page_number)
         content = {'page_obj': page_obj}
         return render(request, 'HSDeckTracker/HSDT_bs.html', content)
-<h1>API:</h1>
-<p></p>
 
+<h4>Beautiful Soup Template:</h4>
+
+    {% extends "HSDT_base.html" %}
+    
+    {% block title %}Current Cards{% endblock %}
+    
+    {# This will be the template to display BS content #}
+    {% block content %}
+    <h1>Current Standard Cards:</h1>
+    <h4>(Data scraped from hearthpwn.com)</h4>
+    
+    {# Info from BS will be displayed below: #}
+    <table>
+        <tr>
+            <th>Card Name</th>
+            <th>Card Type</th>
+            <th>Card Class</th>
+            <th>Card Rarity</th>
+        </tr>
+    
+    {% for card in page_obj %}
+        <tr>
+            <td><a href="https://www.hearthpwn.com{{ card.card_url }}" target="_blank">{{ card.card_name }}</a></td>
+            <td>{{ card.card_type }}</td>
+            <td>{{ card.card_class }}</td>
+            <td>{{ card.card_rarity }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    
+    {# Below is the code used to display the current page, and the options to go the next/previous page. #}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo;First</a> |
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a> |
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last&raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    
+    {% endblock %}
+
+<h1>API</h1>
+<p>As a bit of a challenge, I wanted to incorporate an API into my project since I had not used one before. Being new to APIs, I decided to use one from RapidAPI as I've heard they are beginner friendly. </p>
+
+    # Function for my API. This uses the API to search any string, and return all cards that contain
+    # the string searched by the user.
+    def HSDT_api(request):
+        URL = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/search/"
+        headers = {
+            "X-RapidAPI-Key": "a8d5f261eemsh408d2d3165b6702p168636jsnd42e645665bb",
+            "X-RapidAPI-Host": "omgvamp-hearthstone-v1.p.rapidapi.com"
+        }
+        search_form = SearchForm(data=request.POST or None)
+        search_value = '' # This keeps an error from happening when user first clicks on "API" link
+        if request.method == 'POST':
+            if search_form.is_valid():
+                search_value = search_form.cleaned_data # Removes HTML tags from string
+                URL += search_value['search_value'] # Adds user's string to the end of the URL
+        response = requests.get(URL, headers=headers)
+        card_search = response.json()
+        if search_value is '': # This keeps an error from happening when user first clicks on "API" link
+            card_search = []
+        elif card_search == {'error': 404, 'message': 'Card not found.'}: # Lets the user know if there are no results
+            card_search = [{
+                'name': 'No',
+                'type': 'Results',
+                'playerClass': 'For',
+                'rarity': search_value['search_value']
+            }]
+        content = {
+            'card_search': card_search,
+            'search_form': search_form,
+        }
+        return render(request, 'HSDeckTracker/HSDT_api.html', content)
+        
 <h1>Key Takeaways</h1>
 <ul>
     <li>
