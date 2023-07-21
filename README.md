@@ -104,6 +104,14 @@
 
 <h1>Key Takeaways:</h1>
 <ul>
-    <li>Planning ahead is an essential part of time management. Taking the time to create a basic outline of what I'm trying to accomplish <i>before</i>i> starting any coding helps save time in the long run. A few times throughout this project, a idea would pop into my head and I would start coding away, feuled by the excitement of my new goal. I'd spend an hour or two researching, only to realize that implementing my idea would require me to re-write large portions of code. Had I planned ahead more, I would have been able to write my original code in a way that I could add onto it more easily in the future. </li>
+    <li>
+        Planning ahead is an essential part of time management. Taking the time to create a basic outline of what I'm trying to accomplish <i>before</i> starting any coding helps save time in the long run. A few times throughout this project, a idea would pop into my head and I would start coding away, feuled by the excitement of my new goal. I'd spend an hour or two researching, only to realize that implementing my idea would require me to re-write large portions of code. Had I planned ahead more, I would have been able to write my original code more effectively, and saved some time.
+    </li>
+    <li>
+        Always check the documentation first. This project was my first time using things like an API, Beautiful Soup, Pagination, etc., which means I spent a good amount of my time reading up on how to use them. While a quick google search can answer most simple questions, my experience is that the documentation is best when I am completely new to something. I would spend time trying to google parts that I didn't understand, but my google searches weren't always effective because I wouldn't even know the correct terms/keywords to search. Even just skimming through the documentation would tend to point me to my solution faster than most google searches.
+    </li>
+    <li>
+        Take advantage of the console. During the first few days I worked on this project, I spent way too much time trying to find where my errors were. When something didn't work, I would slowly go over all my code, change one line, see if it worked, repeat. Sometimes I would just stare at my code, having no idea why there was an error at all. I began using functions like print(), type(), debug.log(), and console.log() throughout my code to find errors, and it was a night and day difference. While it still took time to work out some of the errors I ran into, using those functions significantly reduced the amount of time it would take for me to identify the cause. 
+    </li>
 </ul>
 
