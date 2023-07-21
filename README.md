@@ -1,6 +1,6 @@
 # Live Project 1
 <ul>
-    <li><a href="#Introduction"></a></li>
+    <li><a href="#Introduction">Introduction</a></li>
 </ul>
 
 <h1>Introduction</h1>
