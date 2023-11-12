@@ -1,4 +1,4 @@
-# Live Project 1
+# Hearthstone Card Tracker
 <ul>
     <li><a href="#Introduction">Introduction</a></li>
     <li><a href="#CRUD Operations">CRUD Operations</a></li>
