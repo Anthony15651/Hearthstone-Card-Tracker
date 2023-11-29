@@ -280,6 +280,8 @@
     </table>
     {% endblock %}
         
+![API Gif](https://github.com/Anthony15651/Hearthstone-Card-Tracker/blob/main/GIFs/HearthstoneAPIGif.gif)
+
 <h1 id="Key Takeaways">Key Takeaways</h1>
 <ul>
     <li>
