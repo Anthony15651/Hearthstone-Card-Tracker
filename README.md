@@ -205,6 +205,8 @@
     
     {% endblock %}
 
+![](https://github.com/Anthony15651/Hearthstone-Card-Tracker/blob/main/GIFs/HearthstoneBSGif.mp4)
+
 <h1 id="API">API</h1>
 <p>As a bit of a challenge, I wanted to incorporate an API into my project since I had not used one before. Being new to APIs, I decided to use one from RapidAPI as I've heard they are beginner friendly. The API itself offered many different functions, but I was most interested in the search function specifically, which pulls up all cards containing a string searched by the user. I set this up by providing the user with a search box, appending the user's search to my original URL (which is how the search takes place), and then displaying all results. After completing the basic search functionality, I added some code to let users know if their search yeilded no results (the table displays "No Results For [User Search]).</p>
 
