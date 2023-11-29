@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block  title %}HS Deck Tracker{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/CSS/HSDTlayout.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+        <script src="{% static '/JavaScript/HSDTscripts.js' %}" defer></script>
+    </head>
+
+    <div class="nav-container">
+        <div class="nav">
+            <!-- <a href="{% url 'indexHome' %}">Portfolio Home</a> -->
+            <a href="{% url 'HSDT_home' %}">Home</a>
+            <a href="{% url 'HSDT_create' %}">Add</a>
+            <a href="{% url 'HSDT_read' %}">My Collection</a>
+            <a href="{% url 'HSDT_bs' %}">Beautiful Soup</a>
+            <a href="{% url 'HSDT_api' %}">API</a>
+        </div>
+    </div>
+
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+
+    <footer>
+        <p>Project created by Anthony Garcia | 2023</p>
+    </footer>
+</html>

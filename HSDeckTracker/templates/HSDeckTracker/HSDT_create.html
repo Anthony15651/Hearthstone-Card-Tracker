@@ -1,0 +1,12 @@
+{% extends "HSDT_base.html" %}
+
+{% block title %}Add Cards{% endblock %}
+
+{% block content %}
+<h1>Add a new card:</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn">Add</button>
+</form>
+{% endblock %}

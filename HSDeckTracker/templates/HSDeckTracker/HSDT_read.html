@@ -1,0 +1,43 @@
+{% extends "HSDT_base.html" %}
+
+{% block title %}My Collection{% endblock %}
+
+{% block content %}
+<h1>My Collection</h1>
+<table>
+    <tr>
+        <th>Card Name</th>
+        <th>Card Type</th>
+        <th>Card Class</th>
+        <th>Card Rarity</th>
+    </tr>
+
+{% for card in page_obj %}
+    <tr>
+        <td><a href="{% url 'HSDT_details' card.id %}">{{ card.card_name }}</a></td>
+        <td>{{ card.card_type }}</td>
+        <td>{{ card.card_class }}</td>
+        <td>{{ card.card_rarity }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{# Below is the code used to display the current page, and the options to go the next/previous page. #}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo;First</a> |
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a> |
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last&raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

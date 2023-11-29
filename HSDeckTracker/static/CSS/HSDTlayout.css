@@ -1,0 +1,234 @@
+/* -------- General styling -------- */
+html {
+    background-color: #e3cea1;
+    font-family: "Hammersmith One";
+    text-align: center;
+}
+
+.card_info {
+    font-size: 1.3em;
+    color: #8a1919;
+}
+
+.card_desc {
+    font-size: .9em;
+    color: #8a1919;
+}
+
+.bold {
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+/* -------- END General styling -------- */
+
+/* -------- Navbar styling -------- */
+.nav-container {
+    background-color: #3d2e0d;
+    border-radius: 10px;
+}
+
+.nav {
+    background-color: #3d2e0d;
+    margin: none;
+    padding: 15px;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.nav a{
+    text-decoration: none;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 1.2em;
+}
+
+.nav a:hover {
+    background-color: #574112;
+}
+
+span > a {
+    color: #0b269e;
+    text-decoration: none;
+}
+/* -------- END Navbar styling -------- */
+
+/* -------- Button styling -------- */
+.btn {
+    color: white;
+    font-family: "Hammersmith One";
+    background-color: #923ea8;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 3px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-delete {
+    color: white;
+    font-family: "Hammersmith One";
+    background-color: #bd2020;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 3px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-delete:hover {
+    background-color: #8a1919;
+}
+
+.btn-delete:active {
+  background-color: #8a1919;
+  transform: translateY(2px);
+}
+
+.btn-small {
+    width: 90px;
+}
+
+.btn > a {
+    text-decoration: none;
+    color: white;
+    font-family: "Hammersmith One";
+}
+
+.btn:hover {
+    background-color: #692b7a;
+}
+
+.btn:active {
+  background-color: #692b7a;
+  transform: translateY(2px);
+}
+/* -------- END Button styling -------- */
+
+/* -------- Table styling -------- */
+table {
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    font-size: 1.2em;
+    border: 1px solid black;
+    background-color: #8a1919;
+    color: white;
+}
+
+td {
+    border: 1px solid black;
+}
+
+tr{
+    background-color: #c9b589;
+}
+
+tr:nth-child(even) {
+    background-color: #F1F1F1;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.current {
+    padding: 0px 20px;
+    font-weight: 900;
+}
+
+td > a {
+    color: #0b269e;
+    text-decoration: none;
+}
+
+.small-display {
+    width: 30%;
+}
+/* -------- END Table styling -------- */
+
+/* -------- Modal styling -------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #e3cea1;
+    margin: auto;
+    padding: 0px 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 50%;
+}
+
+
+.close {
+    color: darkgray;
+    float: right;
+    font-size: 1.8em;
+}
+
+.close:hover {
+    color: #373d3d;
+    cursor: pointer;
+}
+/* -------- END Modal styling -------- */
+
+/* -------- Form styling -------- */
+.text-form {
+    text-align: center;
+    background-color: #F1F1F1;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
+}
+
+input[type=text]:hover {
+    background-color: #ADADAD;
+}
+
+input[type=number]:hover {
+    background-color: #ADADAD;
+}
+
+.text-form-big {
+    text-align: center;
+    background-color: #F1F1F1;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.text-form-big:hover {
+    background-color: #ADADAD;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* -------- END Form styling -------- */

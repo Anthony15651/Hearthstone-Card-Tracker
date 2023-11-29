@@ -1,0 +1,19 @@
+{% extends "HSDT_base.html" %}
+
+{% block title %}Card Info{% endblock %}
+
+{% block content %}
+<h1>Card Info</h1>
+<p>Card Name: <br><span class="card_info">{{ card.card_name }}</span></p>
+<p>Card Cost: <br><span class="card_info">{{ card.card_cost }}</span></p>
+<p>Card Class: <br><span class="card_info">{{ card.card_class }}</span></p>
+<p>Card Type: <br><span class="card_info">{{ card.card_type }}</span></p>
+<p>Card Rarity: <br><span class="card_info">{{ card.card_rarity }}</span></p>
+<p>Card Image Link: <br><span class="card_desc">{{ card.card_image_link }}</span></p>
+<p>Card Description: <br><span class="card_desc">{{ card.card_description }}</span></p>
+
+<a href="{% url 'HSDT_read' %}"><button type="submit" class="btn btn-small">Back</button></a>
+<a href="{% url 'HSDT_edit' card.id %}"><button type="submit" class="btn btn-small">Edit</button></a>
+
+{% endblock %}
+

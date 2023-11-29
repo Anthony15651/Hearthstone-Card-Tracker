@@ -1,0 +1,11 @@
+{% extends "HSDT_base.html" %}
+
+{% block title %}HS Deck Tracker{% endblock %}
+
+{% block content %}
+<h1>Hearthstone Deck Tracker</h1>
+<!-- Added image to look nicer for showing off project - needs styled in CSS -->
+<img src="../static/Images/hearthstone_background.jpg" alt="Hearthstone Game Image" style="border-radius: 10px; width: 500px; height: 300px;">
+<p>This app manages a collection of Hearthstone cards. Click below to get started!</p>
+<a href="{% url 'HSDT_read' %}"><button type="submit" class="btn">My Collection</button></a>
+{% endblock %}

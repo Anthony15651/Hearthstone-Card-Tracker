@@ -1,0 +1,14 @@
+{% extends "HSDT_base.html" %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{# This page is no longer used (I decided to go with a modal to confirm delete instead). I am keeping it attached for reference. #}
+{% block content %}
+<h1>Delete Confirmation</h1>
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you would like to permanently delete <span class="bold">"{{card.card_name}}"</span>? This action cannot be undone.</p>
+    <button type="submit" class="btn-delete btn-small">Delete</button>
+</form>
+<a href="{% url 'HSDT_edit' card.id %}"><button class="btn btn-small">Back</button></a>
+{% endblock %}
