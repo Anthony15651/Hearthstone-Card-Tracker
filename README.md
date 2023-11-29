@@ -5,7 +5,6 @@
     <li><a href="#Beautiful Soup">Beautiful Soup</a></li>
     <li><a href="#API">API</a></li>
     <li><a href="#Key Takeaways">Key Takeaways</a></li>
-    <li><a href="#Full Code Links">Full Code Links</a></li>
 </ul>
 
 <h1 id="Introduction">Introduction</h1>
@@ -291,5 +290,3 @@
         <b>Take advantage of the console.</b> During the first few days I worked on this project, I spent way too much time trying to find where my errors were. When something didn't work, I would slowly go over all my code, change one line, see if it worked, repeat. Sometimes I would just stare at my code, having no idea why there was an error at all. I began using functions like print(), type(), debug.log(), and console.log() throughout my code to find errors, and it was a night and day difference. While it still took time to work out some of the errors I ran into, using those functions significantly reduced the amount of time it would take for me to identify the cause. 
     </li>
 </ul>
-
-<h4 id="Full Code Links">Full Code Links</h4>
